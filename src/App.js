@@ -4,6 +4,8 @@ import "./App.css";
 import Nav from './Nav';
 import Item from './Item'
 import Cart from './Cart'
+import CartView from './CartView'
+import { BrowserRouter as Router, Switch ,Route} from 'react-router-dom';
 
 
 function App() {
@@ -23,19 +25,28 @@ function App() {
   function calculate(price){
     setTotal(total + price);
   }
+  const Home = () => (
+    items.map(item => (
+      <Item name={item.name} description={item.description} price={item.price}setCount={increment}/>
+    ))
+  );
 
   return (
+    <Router>
     <div>    
       <Header/>
       <Nav/>
       <Cart count={count}/>
-      {items.map(item => (
-        <Item name={item.name} description={item.description} price={item.price}setCount={increment}/>
-      ))}
-      
+      <Switch>
+      <Route path='/' exact component={Home}/>
+      <Route path="/cartview" component={CartView}/>
+      </Switch>
     </div>
+    </Router>
 
   );
 }
+
+
 
 export default App;

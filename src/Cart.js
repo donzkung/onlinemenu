@@ -5,7 +5,7 @@ function Count({count,total}) {
     <div className="cart">
       <h2>Table# 1</h2>
     <h2>Item in the cart : {count}</h2>
-    <a href ="test.html"><h2>View Cart</h2></a>
+    <Link to ="/cartview"><h2>View Cart</h2></Link>
     </div>
   );
 }

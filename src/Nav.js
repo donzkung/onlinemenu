@@ -1,9 +1,9 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 function Nav() {
   return (
     <div className="header">
-    <h2>Noodles</h2>
+    <Link to="/"><h2>Menu</h2></Link>
     </div>
   );
 }
